@@ -1,0 +1,88 @@
+# This project was generated with 0.3.22 using template: https://github.com/beeware/briefcase-template@v0.3.22
+[tool.briefcase]
+project_name = "EdFlowSimulator"
+bundle = "com.izeno"
+version = "1.0.0"
+url = "https://github.com/VoxDroid/EDFlowSimulator"
+license.file = "LICENSE"
+author = "VoxDroid"
+author_email = "izeno.contact@gmail.com"
+
+[tool.briefcase.app.edflowsimulator]
+formal_name = "EdFlowSimulator"
+description = "A discrete-event simulation model to optimize patient flow in the Emergency Department of Sta. Cruz Provincial Hospital, Philippines. Built with Python and SimPy, it analyzes bottlenecks, resource utilization, and waiting times, providing data-driven recommendations for improved efficiency."
+long_description = """More details about the app should go here."""
+icon = "assets/icons/EdFlowSimulator"
+
+sources = [
+    "src/edflowsimulator",
+]
+test_sources = [
+    "tests",
+]
+
+requires = [
+]
+test_requires = [
+]
+
+[tool.briefcase.app.edflowsimulator.macOS]
+universal_build = true
+requires = [
+]
+
+[tool.briefcase.app.edflowsimulator.linux]
+requires = [
+]
+
+[tool.briefcase.app.edflowsimulator.linux.system.debian]
+system_requires = [
+]
+
+system_runtime_requires = [
+]
+
+[tool.briefcase.app.edflowsimulator.linux.system.rhel]
+system_requires = [
+]
+
+system_runtime_requires = [
+]
+
+[tool.briefcase.app.edflowsimulator.linux.system.suse]
+system_requires = [
+]
+
+system_runtime_requires = [
+]
+
+[tool.briefcase.app.edflowsimulator.linux.system.arch]
+system_requires = [
+]
+
+system_runtime_requires = [
+]
+
+[tool.briefcase.app.edflowsimulator.linux.flatpak]
+flatpak_runtime = "org.freedesktop.Platform"
+flatpak_runtime_version = "24.08"
+flatpak_sdk = "org.freedesktop.Sdk"
+
+[tool.briefcase.app.edflowsimulator.windows]
+requires = [
+]
+
+# Mobile deployments
+[tool.briefcase.app.edflowsimulator.iOS]
+requires = [
+]
+
+[tool.briefcase.app.edflowsimulator.android]
+requires = [
+]
+
+# Web deployments
+[tool.briefcase.app.edflowsimulator.web]
+requires = [
+]
+

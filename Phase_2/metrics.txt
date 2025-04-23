@@ -1,0 +1,7 @@
+avg_wait_triage: 5.01
+avg_wait_consult: 17.23
+avg_wait_diag: 31.22
+avg_wait_treat: 20.09
+avg_los: 73.55
+throughput: 172.50
+admission_rate: 0.10
