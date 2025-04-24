@@ -2,4 +2,5 @@ simpy
 matplotlib
 pandas
 numpy
-itertools
+pyqt6
+qtawesome

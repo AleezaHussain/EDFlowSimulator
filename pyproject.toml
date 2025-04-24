@@ -12,7 +12,7 @@ author_email = "izeno.contact@gmail.com"
 formal_name = "EdFlowSimulator"
 description = "A discrete-event simulation model to optimize patient flow in the Emergency Department of Sta. Cruz Provincial Hospital, Philippines. Built with Python and SimPy, it analyzes bottlenecks, resource utilization, and waiting times, providing data-driven recommendations for improved efficiency."
 long_description = """More details about the app should go here."""
-icon = "assets/icons/EdFlowSimulator"
+icon = "assets/icons/EDFlowSimulator"
 
 sources = [
     "src/edflowsimulator",
