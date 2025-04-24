@@ -48,8 +48,8 @@ The simulation ran for 1000 iterations over a 24-hour cycle, with a 2-hour warm-
 
 1. Clone the repository:
    ```
-   git clone https://github.com/VoxDroid/ed-flow-simulation.git
-   cd ed-flow-simulation
+   git clone https://github.com/VoxDroid/EDFlowSimulator.git
+   cd EDFlowSimulator
    ```
 2. Create a virtual environment and activate it:
    ```
@@ -58,16 +58,12 @@ The simulation ran for 1000 iterations over a 24-hour cycle, with a 2-hour warm-
    ```
 3. Install dependencies:
    ```
-   pip install -r requirements.txt
+   pip install -r requirements.txt 
+   python -m pip install briefcase # For briefcase project
    ```
 4. Run the application:
    ```
-   python app.py
-   ```
-   Alternatively, run the simulation directly:
-   ```
-   python Phase_2.py  # For the simulation model
-   python Phase_3.py  # For sensitivity analysis and optimization
+   briefcase dev
    ```
 
 ## Dependencies
@@ -79,10 +75,12 @@ The simulation ran for 1000 iterations over a 24-hour cycle, with a 2-hour warm-
 - Matplotlib 3.4.0
 - PyQt6 (for the GUI)
 - qtawesome (for icons in the GUI)
+- briefcase (for packaging)
 
 Install via:
 ```
 pip install simpy numpy pandas matplotlib pyqt6 qtawesome
+python -m pip install briefcase
 ```
 
 ## Visuals
