@@ -1,5 +1,9 @@
 # Emergency Department Flow Simulation - Sta. Cruz Provincial Hospital
 
+<p align="center">
+   <img src="https://raw.githubusercontent.com/VoxDroid/EDFlowSimulator/refs/heads/main/assets/img/EDFlowSimulator.png" width="250" height="250" alt="Emergency Department Flow Simulator Logo">
+</p>
+
 This repository contains the final project for optimizing patient flow in the Emergency Department (ED) of Sta. Cruz Provincial Hospital, Sta. Cruz, Laguna, Philippines. Using computational simulation, we model the ED's operations to reduce waiting times, increase throughput, and improve resource utilization. The project was developed as part of CSEL 303 (Computational Science) and CMSC 313 (Human Computer Interaction) courses.
 
 ## Objectives
