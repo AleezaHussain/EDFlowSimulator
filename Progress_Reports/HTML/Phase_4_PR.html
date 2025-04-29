@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Phase_4_PR.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="progress-report-phase-4---report-writing-and-presentation">Progress Report: Phase 4 - Report Writing and Presentation</h1>
+<p><strong>Project Title</strong>: Optimizing Patient Flow in the Emergency Department of Sta. Cruz Provincial Hospital<br>
+<strong>Github Repository Link</strong>: <a href="https://github.com/VoxDroid/EDFlowSimulator"><strong><code>github.com/VoxDroid/EDFlowSimulator</code></strong></a></p>
+<p><strong>Courses</strong>: CSEL 303 (Computational Science) and CMSC 313 (Human Computer Interaction)<br>
+<strong>Instructor</strong>: Ms. Roxanne Garbo</p>
+<p><strong>Team Members</strong>:</p>
+<ul>
+<li>Mhar Andrei Macapallag</li>
+<li>Jeron Simon Javier</li>
+<li>Seanrei Ethan Valdeabella</li>
+<li>Eldi Nill Driz</li>
+</ul>
+<p><strong>Date</strong>: April 2025<br>
+<strong>Phase Duration</strong>: Weeks 6–7</p>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>In Phase 4, the team finalized the simulation model and HCI prototype for optimizing patient flow in the Emergency Department (ED) of Sta. Cruz Provincial Hospital. Final testing validated Config 3 (5 doctors day, 4 night, 3 X-rays), achieving a throughput of 195.376 patients/day and an average length of stay (LOS) of 48.081 minutes, surpassing targets of ~180 patients/day and ~60 minutes. The HCI prototype was completed with interactive dashboards and a user guide. A comprehensive final report and presentation were prepared, consolidating all phases. Critical patient LOS (31.0 minutes vs. &lt;30 minutes) and low resource utilization (11.218% doctors, 11.231% X-rays) remain areas for refinement, but the project offers actionable recommendations for hospital efficiency, meeting CSEL 303 and CMSC 313 objectives.</p>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>Conduct final testing to validate the optimized simulation model (Config 3).</li>
+<li>Finalize the HCI prototype with a user guide for hospital staff.</li>
+<li>Prepare a comprehensive final report and presentation summarizing all phases.</li>
+<li>Address anticipated feedback to refine critical patient LOS and documentation.</li>
+</ul>
+<h2 id="activities-and-accomplishments">Activities and Accomplishments</h2>
+<ol>
+<li>
+<p><strong>Final Testing and Validation</strong></p>
+<ul>
+<li><strong>Mhar Andrei Macapallag</strong> conducted stress tests on Config 3, simulating demand surges (λ=20 patients/hour peak).</li>
+<li>Validated KPIs:
+<ul>
+<li>Throughput: 195.376 patients/day (target: ~180).</li>
+<li>Average LOS: 48.081 minutes (target: ~60 minutes).</li>
+<li>Consultation wait: 10.352 minutes (target: ~12.3 minutes).</li>
+<li>Diagnostics wait: 13.586 minutes (target: ~18.5 minutes).</li>
+<li>Critical patient LOS: 31.0 minutes (target: &lt;30 minutes).</li>
+<li>Resource utilization: 11.218% doctors, 11.231% X-rays (target: 70–90%).</li>
+</ul>
+</li>
+<li>Confirmed robustness, with no significant performance degradation under high demand.</li>
+</ul>
+</li>
+<li>
+<p><strong>HCI Prototype Finalization</strong></p>
+<ul>
+<li><strong>Seanrei Ethan Valdeabella</strong> finalized the Figma prototype, adding a help section with tooltips for KPIs and an exportable report feature.</li>
+<li>Conducted usability testing, ensuring intuitive navigation and accessibility (e.g., high-contrast colors, large fonts).</li>
+<li>Integrated real-time simulation outputs, displaying KPIs like waiting times and throughput dynamically.</li>
+</ul>
+</li>
+<li>
+<p><strong>Final Report and Documentation</strong></p>
+<ul>
+<li><strong>Eldi Nill Driz</strong> compiled a comprehensive final report (<code>Phase_4.md</code>), detailing the system, modeling approach, simulation results, sensitivity analysis, optimization, and recommendations.</li>
+<li>Created a user guide explaining how to run the simulation, interpret KPIs, and use the HCI dashboard, aligning with anticipated usability requirements.</li>
+<li>Organized the Git repository with code, visualizations (<code>los_distribution.png</code>, <code>arrival_rate_sensitivity.png</code>, <code>los_heatmap.png</code>, <code>resource_utilization.png</code>, <code>optimization_los.png</code>), and documentation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Presentation Preparation</strong></p>
+<ul>
+<li><strong>Jeron Simon Javier</strong> led the development of a 10–15-minute presentation summarizing the project’s objectives, methodology, results, and recommendations.</li>
+<li>Included visualizations (e.g., optimization bar plot, LOS heatmap) to illustrate Config 3’s impact (32% LOS reduction, 51% diagnostics wait reduction).</li>
+<li>Rehearsed the presentation to ensure clarity and alignment with assessment criteria (e.g., effective communication, visual support).</li>
+</ul>
+</li>
+</ol>
+<h2 id="challenges-encountered">Challenges Encountered</h2>
+<ul>
+<li>Critical patient LOS (31.0 minutes) slightly exceeded the target, requiring trade-offs with overall throughput.</li>
+<li>Low resource utilization (11.218% doctors, 11.231% X-rays) indicated overcapacity, challenging the 70–90% target.</li>
+<li>Condensing complex simulation results into a concise presentation required careful selection of key insights.</li>
+</ul>
+<h2 id="results-and-impact">Results and Impact</h2>
+<ul>
+<li>Config 3 reduced LOS by 32% (from 71.090 to 48.081 minutes) and increased throughput by 13% (from 172.50 to 195.376 patients/day) compared to Phase 2.</li>
+<li>Consultation and diagnostics wait times dropped by 43% and 51%, respectively, addressing Phase 2 bottlenecks.</li>
+<li>The HCI prototype provides hospital staff with an intuitive tool to monitor ED performance, enhancing decision-making.</li>
+<li>The project meets CSEL 303 objectives (computational modeling) and CMSC 313 goals (user-centered design), offering a scalable solution for Philippine hospitals.</li>
+</ul>
+<h2 id="instructor-feedback">Instructor Feedback</h2>
+<p>Reflecting Ms. Roxanne Garbo’s emphasis on actionable outcomes and usability in CSEL 303 and CMSC 313, the team expects guidance to fine-tune priority queuing to achieve critical patient LOS &lt;30 minutes and to include a limitations section (e.g., low utilization, generalized data). The user guide and comprehensive visualizations are anticipated to align with expectations for clear communication and practical application in healthcare settings.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Phase 4 delivered a validated simulation model and HCI prototype, achieving significant improvements in ED efficiency (195.376 patients/day, 48.081-minute LOS). The final report and presentation consolidate findings, providing actionable recommendations for Sta. Cruz Provincial Hospital. While critical patient LOS and resource utilization require further refinement, the project demonstrates the power of computational science and HCI, with potential for broader impact in the Philippines.</p>
+
+</body>
+</html>
