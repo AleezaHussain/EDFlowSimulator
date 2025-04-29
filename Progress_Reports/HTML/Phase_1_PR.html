@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Phase_1_PR.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="progress-report-phase-1---problem-selection-and-proposal">Progress Report: Phase 1 - Problem Selection and Proposal</h1>
+<p><strong>Project Title</strong>: Optimizing Patient Flow in the Emergency Department of Sta. Cruz Provincial Hospital<br>
+<strong>Github Repository Link</strong>: <a href="https://github.com/VoxDroid/EDFlowSimulator"><strong><code>github.com/VoxDroid/EDFlowSimulator</code></strong></a></p>
+<p><strong>Courses</strong>: CSEL 303 (Computational Science) and CMSC 313 (Human Computer Interaction)<br>
+<strong>Instructor</strong>: Ms. Roxanne Garbo</p>
+<p><strong>Team Members</strong>:</p>
+<ul>
+<li>Mhar Andrei Macapallag</li>
+<li>Jeron Simon Javier</li>
+<li>Seanrei Ethan Valdeabella</li>
+<li>Eldi Nill Driz</li>
+</ul>
+<p><strong>Date</strong>: April 2025<br>
+<strong>Phase Duration</strong>: Week 1</p>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>In Phase 1, the team initiated the project to optimize patient flow in the Emergency Department (ED) of Sta. Cruz Provincial Hospital, Sta. Cruz, Laguna, Philippines. The ED was selected as a complex system suitable for computational modeling, and a project proposal was developed to define the problem and objectives. The goals include minimizing patient waiting times, maximizing throughput, and improving resource utilization using discrete-event simulation, queuing theory, and Monte Carlo methods, with a Human Computer Interaction (HCI) component for visualizing outputs. Team roles were assigned, a timeline was established, and initial parameters were defined, laying a robust foundation for Phase 2.</p>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>Select a real-world system (ED) for computational simulation.</li>
+<li>Define the problem, including objectives, input parameters, and performance metrics.</li>
+<li>Develop a project proposal outlining the system, methodology, and expected outcomes.</li>
+<li>Assign team roles and establish a project timeline.</li>
+<li>Plan the integration of HCI principles for visualizing simulation results.</li>
+</ul>
+<h2 id="activities-and-accomplishments">Activities and Accomplishments</h2>
+<ol>
+<li>
+<p><strong>System Selection</strong></p>
+<ul>
+<li>Chose the ED of Sta. Cruz Provincial Hospital due to its stochastic processes, queuing dynamics, and resource constraints, making it ideal for computational modeling.</li>
+<li>Identified key processes: patient arrival, triage, consultation, diagnostics, treatment, and discharge/admission.</li>
+<li>Confirmed the system’s relevance to local healthcare challenges in Sta. Cruz, Laguna, serving a diverse population.</li>
+</ul>
+</li>
+<li>
+<p><strong>Problem Definition</strong></p>
+<ul>
+<li>Defined objectives: minimize average waiting times (target: &lt;30 minutes for critical cases, &lt;60 minutes for non-urgent), maximize throughput (~180 patients/day), and optimize resource utilization (70–90%).</li>
+<li>Specified input parameters:
+<ul>
+<li>Patient arrival rate: Poisson process (λ=15 patients/hour peak, 10 day, 12 night).</li>
+<li>Service times: Triage (normal, mean=5 min), consultation (lognormal, mean=15 min), diagnostics (exponential, mean=30 min), treatment (lognormal, mean=20 min).</li>
+<li>Resources: 3 doctors (day)/2 (night), 5 nurses (day)/3 (night), 10 beds, 1 X-ray, 1 ultrasound.</li>
+<li>Patient priority: 20% critical, 30% urgent, 50% non-urgent.</li>
+</ul>
+</li>
+<li>Established performance metrics: average waiting time, length of stay (LOS), throughput, queue length, resource utilization, and bottleneck identification.</li>
+</ul>
+</li>
+<li>
+<p><strong>Project Proposal Development</strong></p>
+<ul>
+<li>Drafted a comprehensive proposal (<code>Phase_1.md</code>) detailing the system, problem, computational methods (discrete-event simulation, queuing theory, Monte Carlo methods), expected outcomes, and local relevance.</li>
+<li>Proposed an HCI component to visualize simulation outputs (e.g., dashboards for waiting times and throughput) for hospital staff.</li>
+</ul>
+</li>
+<li>
+<p><strong>Team Roles and Timeline</strong></p>
+<ul>
+<li>Assigned roles:
+<ul>
+<li><strong>Mhar Andrei Macapallag</strong>: Project Manager and Model Developer, overseeing timeline and simulation coding.</li>
+<li><strong>Jeron Simon Javier</strong>: Data Analyst, responsible for statistical analysis and performance metrics.</li>
+<li><strong>Seanrei Ethan Valdeabella</strong>: HCI Designer, focusing on visualization and interface development.</li>
+<li><strong>Eldi Nill Driz</strong>: Report/Presentation Lead, managing documentation and final deliverables.</li>
+</ul>
+</li>
+<li>Established a timeline:
+<ul>
+<li>Phase 1: Problem selection and proposal (Week 1)</li>
+<li>Phase 2: Model development and simulation (Weeks 2–3)</li>
+<li>Phase 3: Experimentation and sensitivity analysis (Weeks 4–5)</li>
+<li>Phase 4: Report writing and presentation (Weeks 6–7)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Computational and HCI Planning</strong></p>
+<ul>
+<li>Selected Python with SimPy for discrete-event simulation, NumPy for pseudorandom number generation, Pandas for data analysis, and Matplotlib for visualization.</li>
+<li>Planned to use Figma for HCI prototype design, focusing on intuitive dashboards for hospital staff to monitor KPIs (e.g., waiting times, bed occupancy).</li>
+<li>Discussed integrating Monte Carlo methods for stochastic inputs and queuing theory for analyzing wait times.</li>
+</ul>
+</li>
+</ol>
+<h2 id="challenges-encountered">Challenges Encountered</h2>
+<ul>
+<li>Limited access to specific ED data required reliance on generalized parameters from Philippine hospital contexts, necessitating validation in Phase 2.</li>
+<li>Balancing simulation complexity with computational efficiency posed initial planning challenges.</li>
+<li>Defining a clear scope for the HCI component required iterative discussions to align with hospital staff needs.</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li>Develop the discrete-event simulation model in Python using SimPy.</li>
+<li>Validate input parameters with typical Philippine hospital data.</li>
+<li>Begin designing the HCI prototype in Figma for visualizing simulation outputs.</li>
+<li>Ensure alignment with course requirements for computational modeling and HCI design.</li>
+</ul>
+<h2 id="instructor-feedback">Instructor Feedback</h2>
+<p>To align with Ms. Roxanne Garbo’s expectations for CSEL 303 and CMSC 313, the team anticipates guidance to refine the problem definition by incorporating more specific performance metrics and ensuring the HCI component is user-centered. The proposal’s focus on discrete-event simulation and local relevance is expected to meet course standards, but further emphasis on validating parameters and planning sensitivity analysis in Phase 2 will enhance rigor.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Phase 1 established a solid foundation by selecting the ED, defining the problem, and developing a detailed proposal. The integration of HCI principles enhances the project’s practicality, aligning with the goals of CSEL 303 and CMSC 313. The team’s collaborative efforts ensured clear objectives and a feasible timeline, positioning the project for successful model development in Phase 2.</p>
+
+</body>
+</html>
