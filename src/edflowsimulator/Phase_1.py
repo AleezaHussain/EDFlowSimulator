@@ -5,6 +5,7 @@ class Phase1Tab(QWidget):
     def __init__(self):
         super().__init__()
         self.init_ui()
+        self.setStyleSheet("background: #34294f;")
 
     def init_ui(self):
         layout = QVBoxLayout()

@@ -4,6 +4,7 @@ from PyQt6.QtCore import Qt
 class Phase4Tab(QWidget):
     def __init__(self):
         super().__init__()
+        self.setStyleSheet("background: #34294f;")
         self.init_ui()
 
     def init_ui(self):

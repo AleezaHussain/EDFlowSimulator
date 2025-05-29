@@ -246,6 +246,7 @@ class SimulationWorker(QThread):
 class VisualizationDialog(QDialog):
     def __init__(self, visualizations, titles, parent=None):
         super().__init__(parent)
+        self.setStyleSheet("background: #2e3440;")
         self.setWindowTitle("Visualizations")
         self.setModal(True)
         self.setMinimumSize(800, 600)
@@ -260,6 +261,7 @@ class VisualizationDialog(QDialog):
 
         # Scroll area for visualizations
         scroll_area = QScrollArea()
+        scroll_area.setStyleSheet("background: #2e3440;")
         scroll_area.setWidgetResizable(True)
         scroll_widget = QWidget()
         scroll_layout = QVBoxLayout()
@@ -269,7 +271,7 @@ class VisualizationDialog(QDialog):
         for viz_data, title in zip(visualizations, titles):
             # Title label
             title_label = QLabel(title)
-            title_label.setStyleSheet("font-size: 16px; color: #FFFFFF; font-weight: bold;")
+            title_label.setStyleSheet("font-size: 16px; background: #2e3440; color: #FFFFFF; font-weight: bold;")
             scroll_layout.addWidget(title_label)
 
             # Image label
@@ -279,6 +281,7 @@ class VisualizationDialog(QDialog):
             label.setAlignment(Qt.AlignmentFlag.AlignCenter)
             label.setPixmap(pixmap)
             label.original_pixmap = pixmap  # Store the original pixmap for resizing
+            label.setStyleSheet("background: #2e3440;")
             self.image_labels.append(label)
             scroll_layout.addWidget(label)
 
@@ -358,6 +361,7 @@ class VisualizationDialog(QDialog):
 class Phase2Tab(QWidget):
     def __init__(self):
         super().__init__()
+        self.setStyleSheet("background: #34294f;")
         self.is_running = False
         self.init_ui()
         self.log_timer = QTimer()
@@ -435,11 +439,11 @@ class Phase2Tab(QWidget):
 
         for group_name, params in param_groups:
             group_label = QLabel(group_name)
-            group_label.setStyleSheet("font-size: 16px; color: #FFFFFF; font-weight: bold;")
+            group_label.setStyleSheet("background: #2e3440; font-size: 16px; color: #FFFFFF; font-weight: bold;")
             self.param_layout.addWidget(group_label)
             for param in params:
                 label = QLabel(param.replace('_', ' ').title())
-                label.setStyleSheet("color: #E6D5F5;")
+                label.setStyleSheet("background: #2e3440; color: #E6D5F5;")
                 self.param_layout.addWidget(label)
                 input_field = QLineEdit(self.default_params[param])
                 input_field.setStyleSheet("background-color: #4A3B6A; color: #E6D5F5; border: 1px solid #6B5A8D;")
@@ -646,6 +650,12 @@ class Phase2Tab(QWidget):
             QScrollArea {
                 background-color: #34294F;
                 border: 1px solid #4A3B6A;
+            }
+            QScrollArea > QWidget {
+                background-color: #2e3440;
+            }
+            QScrollArea > QWidget > QWidget {
+                background-color: #2e3440;
             }
         """)
         self.sim_log.setStyleSheet("""

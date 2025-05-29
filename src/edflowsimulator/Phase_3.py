@@ -573,6 +573,7 @@ class OptimizationWorker(QThread):
 class VisualizationDialog(QDialog):
     def __init__(self, visualizations, titles, parent=None):
         super().__init__(parent)
+        self.setStyleSheet("background:#2e3440;")
         self.setWindowTitle("Visualizations")
         self.setModal(True)
         self.setMinimumSize(800, 600)
@@ -587,16 +588,19 @@ class VisualizationDialog(QDialog):
 
         # Tab widget for different visualizations
         self.tab_widget = QTabWidget()
+        self.tab_widget.setStyleSheet("background: #2e3440;")
         layout.addWidget(self.tab_widget)
 
         # Add each visualization to a tab with a scroll area
         for viz_data, title in zip(visualizations, titles):
             tab = QWidget()
+            tab.setStyleSheet("background: #2e3440;")
             tab_layout = QVBoxLayout()
             tab.setLayout(tab_layout)
 
             # Scroll area for each tab
             scroll_area = QScrollArea()
+            scroll_area.setStyleSheet("background: #2e3440;")
             scroll_area.setWidgetResizable(True)
             scroll_widget = QWidget()
             scroll_layout = QVBoxLayout()
@@ -604,7 +608,7 @@ class VisualizationDialog(QDialog):
 
             # Title label
             title_label = QLabel(title)
-            title_label.setStyleSheet("font-size: 16px; color: #FFFFFF; font-weight: bold;")
+            title_label.setStyleSheet("font-size: 16px; background:#2e3440; color: #FFFFFF; font-weight: bold;")
             scroll_layout.addWidget(title_label)
 
             # Image label
@@ -612,6 +616,7 @@ class VisualizationDialog(QDialog):
             pixmap = QPixmap.fromImage(image)
             label = QLabel()
             label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            label.setStyleSheet("background: #2e3440;")
             label.setPixmap(pixmap)
             label.original_pixmap = pixmap  # Store the original pixmap for resizing
             self.image_labels.append(label)
@@ -702,6 +707,7 @@ class VisualizationDialog(QDialog):
 class Phase3Tab(QWidget):
     def __init__(self):
         super().__init__()
+        self.setStyleSheet("background: #34294f;")
         self.is_running = False
         self.init_ui()
         self.log_timer = QTimer()
@@ -772,11 +778,11 @@ class Phase3Tab(QWidget):
 
         for group_name, params in param_groups:
             group_label = QLabel(group_name)
-            group_label.setStyleSheet("font-size: 16px; color: #FFFFFF; font-weight: bold;")
+            group_label.setStyleSheet("background: #2e3440; font-size: 16px; color: #FFFFFF; font-weight: bold;")
             self.sensitivity_param_layout.addWidget(group_label)
             for param in params:
                 label = QLabel(param.replace('_', ' ').title())
-                label.setStyleSheet("color: #E6D5F5;")
+                label.setStyleSheet("background: #2e3440; color: #E6D5F5;")
                 self.sensitivity_param_layout.addWidget(label)
                 if param.startswith('vary_'):
                     input_field = QComboBox()
@@ -989,7 +995,16 @@ class Phase3Tab(QWidget):
                 background-color: #34294F;
                 border: 1px solid #4A3B6A;
             }
+            QScrollArea > QWidget {
+                background-color: #2e3440;
+            }
+            QScrollArea > QWidget > QWidget {
+                background-color: #2e3440;
+            }
         """)
+
+        self.sensitivity_param_layout.insertSpacing
+
         self.sensitivity_sim_log.setStyleSheet("""
             QTextEdit {
                 background-color: #4A3B6A;
